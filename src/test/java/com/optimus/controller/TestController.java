@@ -1,8 +1,10 @@
-package com.optimus.factory.test;
+package com.optimus.controller;
 
 import com.optimus.factory.TargetTypeAnnotationAware;
 import com.optimus.factory.AnnotationObjectFactory;
 import com.optimus.factory.TargetType;
+import com.optimus.service.AlertService;
+import com.optimus.service.InfraService;
 
 /**
  * Created by sujay on 14/11/14.
@@ -10,13 +12,13 @@ import com.optimus.factory.TargetType;
 public class TestController implements TargetTypeAnnotationAware {
 
 
-    @TargetType("com.optimus.factory.test.AlertService")
+    @TargetType("com.optimus.service.AlertService")
     private InfraService alertService;
 
-    @TargetType("com.optimus.factory.test.PingService")
+    @TargetType("com.optimus.service.PingService")
     private InfraService pingService;
 
-    @TargetType("com.optimus.factory.test.AlertService")
+    @TargetType("com.optimus.service.AlertService")
     private AlertService alertService2;
 
     public TestController(){

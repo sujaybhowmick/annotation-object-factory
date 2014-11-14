@@ -1,5 +1,7 @@
-package com.optimus.factory.test;
+package com.optimus.test;
 
+import com.optimus.controller.TestController;
+import com.optimus.controller.TestController2;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

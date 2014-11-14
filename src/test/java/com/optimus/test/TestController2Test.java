@@ -1,10 +1,9 @@
-package com.optimus.factory.test;
+package com.optimus.test;
 
+import com.optimus.controller.TestController2;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class TestController2Test {
 
@@ -20,11 +19,9 @@ public class TestController2Test {
 
     @Test(expected = RuntimeException.class)
     public void testClassNotFoundException() throws Exception {
-        try {
-            testController2 = new TestController2();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+
+        testController2 = new TestController2();
+
     }
 
 
