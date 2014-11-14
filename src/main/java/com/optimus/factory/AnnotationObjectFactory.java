@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 /**
  * Created by sujay on 14/11/14.
  */
-public class AnnotationObjectFactory {
+public final class AnnotationObjectFactory {
 
     public static void create(TargetTypeAnnotationAware targetTypeAnnotationAware){
 
