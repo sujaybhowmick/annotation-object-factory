@@ -2,7 +2,7 @@
 
 ##How to use
 
-1. Class you want objects to be created should implement AnnotationAware 
+1. Class for which you want objects to be created should implement AnnotationAware 
 interface
 2. Annotate the Class fields for which you need instance created by the factory 
 with @TargetType("<full qualified class name string">)
