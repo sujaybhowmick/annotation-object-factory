@@ -16,6 +16,9 @@ public class TestController implements TargetTypeAnnotationAware {
     @TargetType("com.optimus.factory.test.PingService")
     private InfraService pingService;
 
+    @TargetType("com.optimus.factory.test.AlertService")
+    private AlertService alertService2;
+
     public TestController(){
         init();
     }

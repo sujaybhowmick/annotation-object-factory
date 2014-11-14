@@ -7,9 +7,9 @@ import java.lang.reflect.Field;
  */
 public class AnnotationObjectFactory {
 
-    public static void create(TargetTypeAnnotationAware annotationAware){
+    public static void create(TargetTypeAnnotationAware targetTypeAnnotationAware){
 
-        Class<?> annotatedType = annotationAware.getClass();
+        Class<?> annotatedType = targetTypeAnnotationAware.getClass();
 
         Field fields[] = annotatedType.getDeclaredFields();
 
@@ -23,14 +23,15 @@ public class AnnotationObjectFactory {
                 if(fieldType.isAssignableFrom(targetClazz)){
                     field.setAccessible(true);
                     try {
-                        field.set(annotationAware, targetClazz.newInstance());
+                        field.set(targetTypeAnnotationAware,
+                                                targetClazz.newInstance());
                     } catch (IllegalAccessException e) {
                         throw new RuntimeException(
-                                String.format("Target Class %s cannot be created",
+                                String.format("Target Class %s instance cannot be created",
                                         targetClazz.getName()));
                     } catch (InstantiationException e) {
                         throw new RuntimeException(
-                                String.format("Target Class %s cannot be created",
+                                String.format("Target Class %s instance cannot be created",
                                         targetClazz.getName()));
                     }
                 }else {

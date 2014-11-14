@@ -33,4 +33,10 @@ public class TestControllerTest {
         assertEquals("This is an Ping Event.",
                 testController.getPingService().onEvent());
     }
+
+    @Test
+    public void testTestControllerConcreteAlertService() throws Exception {
+        assertEquals("This is an Alert Event.",
+                testController.getAlertService().onEvent());
+    }
 }
