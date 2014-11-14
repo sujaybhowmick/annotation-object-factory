@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 public class TestControllerTest {
 
     TestController testController;
+    TestController2 testController2;
 
     @Before
     public void setUp() throws Exception {
