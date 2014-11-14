@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
  */
 public class AnnotationObjectFactory {
 
-    public static void create(AnnotationAware annotationAware){
+    public static void create(TargetTypeAnnotationAware annotationAware){
 
         Class<?> annotatedType = annotationAware.getClass();
 

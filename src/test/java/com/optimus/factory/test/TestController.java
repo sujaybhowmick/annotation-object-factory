@@ -1,13 +1,13 @@
 package com.optimus.factory.test;
 
-import com.optimus.factory.AnnotationAware;
+import com.optimus.factory.TargetTypeAnnotationAware;
 import com.optimus.factory.AnnotationObjectFactory;
 import com.optimus.factory.TargetType;
 
 /**
  * Created by sujay on 14/11/14.
  */
-public class TestController implements AnnotationAware {
+public class TestController implements TargetTypeAnnotationAware {
 
 
     @TargetType("com.optimus.factory.test.AlertService")
