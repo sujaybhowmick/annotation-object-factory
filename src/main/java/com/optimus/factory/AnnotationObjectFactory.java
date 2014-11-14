@@ -28,11 +28,11 @@ public class AnnotationObjectFactory {
                     } catch (IllegalAccessException e) {
                         throw new RuntimeException(
                                 String.format("Target Class %s instance cannot be created",
-                                        targetClazz.getName()));
+                                        targetClazz.getName()), e);
                     } catch (InstantiationException e) {
                         throw new RuntimeException(
                                 String.format("Target Class %s instance cannot be created",
-                                        targetClazz.getName()));
+                                        targetClazz.getName()), e);
                     }
                 }else {
                     throw new RuntimeException(
@@ -42,7 +42,7 @@ public class AnnotationObjectFactory {
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(
                         String.format("Target Class %s for declared field %s not found",
-                                targetClazzValue, field.getName()));
+                                targetClazzValue, field.getName()), e);
             }
 
         }

@@ -20,7 +20,11 @@ public class TestController2Test {
 
     @Test(expected = RuntimeException.class)
     public void testClassNotFoundException() throws Exception {
-        testController2 = new TestController2();
+        try {
+            testController2 = new TestController2();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
 
