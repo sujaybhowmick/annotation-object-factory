@@ -18,32 +18,35 @@ public final class AnnotationObjectFactory {
             TargetType targetType = field.getAnnotation(TargetType.class);
             String targetClazzValue = targetType.value();
 
+            Class<?> targetClazz = null;
             try {
-                Class<?> targetClazz = Class.forName(targetClazzValue);
-                if(fieldType.isAssignableFrom(targetClazz)){
-                    field.setAccessible(true);
-                    try {
-                        field.set(targetTypeAnnotationAware,
-                                                targetClazz.newInstance());
-                    } catch (IllegalAccessException e) {
-                        throw new RuntimeException(
-                                String.format("Target Class %s instance cannot be created",
-                                        targetClazz.getName()), e);
-                    } catch (InstantiationException e) {
-                        throw new RuntimeException(
-                                String.format("Target Class %s instance cannot be created",
-                                        targetClazz.getName()), e);
-                    }
-                }else {
-                    throw new RuntimeException(
-                     String.format("Target Class %s cannot be cast to %s",
-                            targetClazzValue, targetClazz.getName()));
-                }
+                targetClazz = Class.forName(targetClazzValue);
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(
-                        String.format("Target Class %s for declared field %s not found",
-                                targetClazzValue, field.getName()), e);
+                        String.format("Target Class %s not found",
+                                targetClazzValue));
             }
+
+            if(fieldType.isAssignableFrom(targetClazz)){
+                field.setAccessible(true);
+                try {
+                    field.set(targetTypeAnnotationAware,
+                            targetClazz.newInstance());
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(
+                            String.format("Target Class %s instance cannot be created",
+                                    targetClazz.getName()), e);
+                } catch (InstantiationException e) {
+                    throw new RuntimeException(
+                            String.format("Target Class %s instance cannot be created",
+                                    targetClazz.getName()), e);
+                }
+            }else {
+                throw new RuntimeException(
+                 String.format("Target Class %s cannot be cast to %s",
+                        targetClazzValue, targetClazz.getName()));
+            }
+
 
         }
 
